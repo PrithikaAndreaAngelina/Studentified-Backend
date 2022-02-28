@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>sign up</title>
+	<style>label{display: inline-block;width: 80px;}</style>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="loginnew1.css">
+  <script src="loginnew.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="img">
+      <img src="pro.png">
+    </div>
+    <div class="login-content">
+      <form action="index.html">
+        <img src="favicon.png">
+        <h2 class="title">Welcome </h2>
+              <div class="input-div one">
+                 <div class="i">
+                    <i class="fas fa-user"></i>
+                 </div>
+                 <div class="div">
+                    <h5>Username</h5>
+                    <input type="text" class="input">
+                 </div>
+              </div>
+              <div class="input-div pass">
+                 <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                 </div>
+                 <div class="div">
+                    <h5>Password</h5>
+                    <input type="password" class="input">
+                 </div>
+              </div>
+              <a href="#">Forgot Password?</a>
+<a href="dum.html">
+  <input type="submit" class="btn" value="Login">
+</a>
+            </form>
+        </div>
+    </div>
+
+
+
+
+<!--<div class='mb-5'>
+
+
+	<h3 class="mb-3" >Welcome to Studentified</h3>
+
+	<input type="text" placeholder="Firstname" id='fname' class="form-control mb-3">
+	<input type="text" placeholder="Lastname" id='lname' class="form-control mb-3">
+		<input type="text" placeholder="register number" id='reg' class="form-control mb-3">
+
+	<input type="text" placeholder="SKILL" id='skill' class="form-control mb-3">
+	<input type="text" placeholder="describe" id='des' class="form-control mb-3">
+	<input type="email" placeholder="email" id='mail' class="form-control mb-3">
+	<input type="password" placeholder="create a password" id='pw' class="form-control user-box">
+	<button type="text" class='btn btn-outline-primary mb-3' id='signbut'>SIGN UP</button>
+	<a href="hacklogin.html" class="badge badge-secondary">Already have an account?</a>
+</div>-->
+	<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAbHCwwvYpuHi0YkmbuhUtz1umBR3tFpp8",
+    authDomain: "hackhers-821bf.firebaseapp.com",
+    projectId: "hackhers-821bf",
+    storageBucket: "hackhers-821bf.appspot.com",
+    messagingSenderId: "147545669442",
+    appId: "1:147545669442:web:c83c97c13c9a5dfb9e12db",
+    measurementId: "G-4RYCKG27MM"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  import {getDatabase,ref,get,set,child,update,remove}
+  from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+  const db =getDatabase();
+
+  const fname=document.getElementById('fname');
+  const lname=document.getElementById('lname');
+  const reg=document.getElementById('reg')
+  const mail=document.getElementById('mail')
+  const skill=document.getElementById('skill');
+  const desc=document.getElementById('des');
+    //const pw=document.getElementById('pw');
+
+  const signbut=document.getElementById('signbut');
+
+
+function isEmptyOrSpace(str){
+	return str==null || str.match(/^ *$/) !== null;
+}
+  function Validation(){
+  	let fnameregex = /^[a-zA-Z]+$/;
+  	  	let lnameregex = /^[a-zA-Z]+$/;
+  	let mailregex = /^[a-zA-Z0-9]+@(skcet.ac)\.in$/;
+  	let skillregex =  /^[a-zA-Z]+$/;
+
+  	if(isEmptyOrSpace(fname.value)|| isEmptyOrSpace(mail.value) || isEmptyOrSpace(skill.value))
+  	{
+  		alert(
+  			'you cannot leave any field empty');
+  		return false;
+  		}
+
+  	if (!fnameregex.test(fname.value)){
+  		alert('Firstname should contain only alphabet');
+  		return false;
+  	}
+  	if (!lnameregex.test(lname.value)){
+  		alert('Lastname should contain only alphabet');
+  		return false;
+  	}
+  	if (!mailregex.test(mail.value)){
+  		alert('Enter a valid mail');
+  		return false;
+  	}
+return true;
+
+  }
+
+  function signupdata(){
+  	if(!Validation()){
+  		return;
+  	};
+  	const dbRef = ref(db);
+  	get(child(dbRef, 'Thestudents/'+reg.value)).then((snapshot)=>{
+      sessionStorage.setItem('reg',reg.value);
+  		if(snapshot.exists()){
+  			alert('Account already exists');
+  		}
+  		else{
+  			set(ref(db,'Thestudents/'+reg.value),{
+  		frstName: fname.value,
+  		lastName: lname.value,
+  		reg: reg.value,
+  		email: mail.value,
+  		skill: skill.value,
+  		Tagline: des.value 
+  	})
+  	.then(()=>{
+  		alert('USER ADDED SUCCESSFULLY');
+      window.location.href = "http://localhost:8080/dashboard?user="+reg.value;
+  	})
+  	.catch((error)=>{
+  		alert('UNSUCCESSFUL, error'+error);
+  		  	})
+
+  		}
+  	
+  });
+}
+signbut.addEventListener('click', signupdata);
+
+
+</script>
+</body>
+</html>

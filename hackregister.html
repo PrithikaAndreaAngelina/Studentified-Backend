@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!---<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">--->
+    <link rel="stylesheet" href="login.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+	<title>sign up</title>
+	<style>label{display: inline-block;width: 80px;}</style>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+<div class='login-box'>
+	<h2>Welcome to Studentified</h2>
+        <form>
+          <div class="user-box">
+            <input type="text" id='fname' name="" required="">
+            <label>Firstname</label>
+          </div>
+          <div class="user-box">
+            <input type="text" id='lname' name="" required="">
+            <label>Lastname</label>
+          </div>
+          <div class="user-box">
+            <input type="text" id='skill' name="" required="">
+            <label>Skillsets</label>
+          </div>
+          <div class="user-box">
+            <input type="text" id='des'  name="" required="">
+            <label>Tagline</label>
+          </div>
+          <div class="user-box">
+            <input type="text" id='mail' name="" required="">
+            <label>Email Id</label>
+          </div>
+           
+<button type="text" class='btn btn-outline-primary user-box' id='signbut'>SIGN UP</button>
+          <!--<a id="signbut">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+          </a>-->
+        </form>
+      </div>
+	<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAbHCwwvYpuHi0YkmbuhUtz1umBR3tFpp8",
+    authDomain: "hackhers-821bf.firebaseapp.com",
+    projectId: "hackhers-821bf",
+    storageBucket: "hackhers-821bf.appspot.com",
+    messagingSenderId: "147545669442",
+    appId: "1:147545669442:web:c83c97c13c9a5dfb9e12db",
+    measurementId: "G-4RYCKG27MM"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  import {getDatabase,ref,get,set,child,update,remove}
+  from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+  const db =getDatabase();
+
+
+  const fname=document.getElementById('fname');
+
+
+  const lname=document.getElementById('lname');
+
+
+  //const reg=document.getElementById('reg')
+
+
+  const mail=document.getElementById('mail')
+
+ 
+  const skill=document.getElementById('skill');
+
+
+  const desc=document.getElementById('des');
+    //const pw=document.getElementById('pw');
+
+  const signbut=document.getElementById('signbut');
+
+
+function isEmptyOrSpace(str){
+	return str==null || str.match(/^ *$/) !== null;
+}
+  function Validation(){
+  	let fnameregex = /^[a-zA-Z]+$/;
+  	  	let lnameregex = /^[a-zA-Z]+$/;
+  	let mailregex = /^[a-zA-Z0-9]+@(skcet.ac)\.in$/;
+  	let skillregex =  /^[a-zA-Z]+$/;
+
+  	if(isEmptyOrSpace(fname.value)|| isEmptyOrSpace(mail.value) || isEmptyOrSpace(skill.value)|| isEmptyOrSpace(pw.value))
+  	{
+  		alert(
+  			'you cannot leave any field empty');
+  		return false;
+  		}
+
+  	if (!fnameregex.test(fname.value)){
+  		alert('Firstname should contain only alphabet');
+  		return false;
+  	}
+  	if (!lnameregex.test(lname.value)){
+  		alert('Lastname should contain only alphabet');
+  		return false;
+  	}
+  	if (!mailregex.test(mail.value)){
+  		alert('Enter a valid mail');
+  		return false;
+  	}
+return true;
+
+  }
+
+  function signupdata(){
+  	if(!Validation()){
+  		return;
+  	};
+  	const dbRef = ref(db);
+
+  	get(child(dbRef, 'Thestudents/'+skill.value)).then((snapshot)=>{
+  		sessionStorage.setItem('skill',skill.value);
+  		if(snapshot.exists()){
+  			alert('Account already exists');
+  		}
+  		else{
+  			set(ref(db,'Thestudents/'+skill.value),{
+  		frstName: fname.value,
+  		lastName: lname.value,
+  		//reg: reg.value,
+  		email: mail.value,
+  		skill: skill.value,
+  		//pwd: pw.value,
+  		Tagline: des.value 
+  	})
+  	.then(()=>{
+  		alert('USER ADDED SUCCESSFULLY');
+  		window.location.href = "http://localhost:8080/dashboard?user="+reg.value
+  	})
+  	.catch((error)=>{
+  		alert('UNSUCCESSFUL, error'+error);
+  		  	})
+
+  		}
+  	
+  });
+}
+
+
+
+
+
+signbut.addEventListener('click', signupdata);
+
+
+</script>
+</body>
+</html>
