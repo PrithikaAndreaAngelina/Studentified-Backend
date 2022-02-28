@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="zero.js"></script>
+    <title>
+        Studentified
+    </title>
+
+    <link rel="shortcut icon" href="/images/logo-mb.png" type="image/png">
+    <link rel="stylesheet" href="vone.css">
+    <link rel="stylesheet" href="app.css">
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- APP CSS -->
+   
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="favicon.jpeg" alt="Comapny logo">
+            <div class="sidebar-close" id="sidebar-close">
+                <i class='bx bx-left-arrow-alt'></i>
+            </div>
+        </div>
+        <div class="sidebar-user">
+            <div class="sidebar-user-info">
+                <img src="user-image.jpg.jpeg" alt="User picture" class="profile-image">
+                <div class="sidebar-user-name">
+                    Prithu
+                </div>
+            </div>
+            <button class="btn btn-outline">
+                <i class='bx bx-log-out bx-flip-horizontal'></i>
+            </button>
+        </div>
+        <!-- SIDEBAR MENU -->
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#" class="active">
+                    <i class='bx bx-home'></i>
+                    <span>dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span>Reviews</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-chart'></i>
+                    <span>Track your Progress</span>
+                </a>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-user-circle'></i>
+                    <span>account</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="#">
+                            edit profile
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-category'></i>
+                    <span>project</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="#">
+                            list
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            add project
+                        </a>
+                    </li>
+                </ul>
+            </li>
+			<li>
+                <a href="#">
+                    <i class='bx bx-mail-send'></i>
+                    <span>Notification</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-chat'></i>
+                    <span>Forum</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-calendar'></i>
+                    <span>Set Remainder</span>
+                </a>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-cog'></i>
+                    <span>settings</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="#" class="darkmode-toggle" id="darkmode-toggle">
+                            darkmode
+                            <span class="darkmode-switch"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <div class="main-header">
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class='bx bx-menu-alt-right'></i>
+            </div>
+            <div class="main-title">
+                dashboard
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="row">
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="box box-hover">
+                        <!-- COUNTER -->
+                        <div class="counter">
+                            <div class="counter-title">
+                                Skillsets
+                            </div>
+                            <div class="counter-info">
+                                <div id='skillval' class="counter-count">
+                                    Frontend 
+                                </div>
+                                <i class='bx bx-shopping-bag'></i>
+                            </div>
+                        </div>
+                        <!-- END COUNTER -->
+                    </div>
+                </div>
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="box box-hover">
+                        <!-- COUNTER -->
+                        <div class="counter">
+                            <div class="counter-title">
+                                Tagline
+                            </div>
+                            <div class="counter-info">
+                                <div class="counter-count">
+                                    <i>"Kingship"</i>
+                                </div>
+                                <i class='bx bx-chat'></i>
+                            </div>
+                        </div>
+                        <!-- END COUNTER -->
+                    </div>
+                </div>
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="box box-hover">
+                        <!-- COUNTER -->
+                        <div class="counter">
+                            <div class="counter-title">
+                                Stars Earned
+                            </div>
+                            <div class="counter-info">
+                                <div class="counter-count">
+                                    1
+                                </div>
+                                <i class='bx bx-line-chart'></i>
+                            </div>
+                        </div>
+                        <!-- END COUNTER -->
+                    </div>
+                </div>
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="box box-hover">
+                        <!-- COUNTER -->
+                        <div class="counter">
+                            <div class="counter-title">
+                                Friends
+                            </div>
+                            <div class="counter-info">
+                                <div class="counter-count">
+                                    0
+                                </div>
+                                <i class='bx bx-user'></i>
+                            </div>
+                        </div>
+                        <!-- END COUNTER -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3 col-md-6 col-sm-12">
+                    <!-- TOP PRODUCT -->
+                    <div class="box f-height">
+                        <div class="box-header">
+                            Achievements
+                        </div>
+                        <div class="box-body">
+                            <ul class="product-list">
+                                <li class="product-list-item">
+                                    <div class="item-info">
+                                        <img src="ach.png" alt="product image">
+                                        
+                                    <div class="item-sale-info">
+                                        <div class="text-second">TBA</div>
+                                        <div class="product-sales">TBA</div>
+                                    </div>
+                                </li>
+                                <li class="product-list-item">
+                                    <div class="item-info">
+                                        <img src="ach.png" alt="product image">
+                                        
+                                    <div class="item-sale-info">
+                                        <div class="text-second">TBA</div>
+                                        <div class="product-sales">TBA</div>
+                                    </div>
+                                </li>
+
+
+
+
+
+
+                                <li class="product-list-item">
+                                    <div class="item-info">
+                                        <img src="ach.png" alt="product image">
+                                        
+                                    <div class="item-sale-info">
+                                        <div class="text-second">TBA</div>
+                                        <div class="product-sales">TBA</div>
+                                    </div>
+                                </li>
+                                <li class="product-list-item">
+                                    <div class="item-info">
+                                        <img src="ach.png" alt="product image">
+                                        
+                                    <div class="item-sale-info">
+                                        <div class="text-second">TBA</div>
+                                        <div class="product-sales">TBA</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- TOP PRODUCT -->
+                </div>
+                <div class="col-4 col-md-6 col-sm-12">
+                    <!-- CATEGORY CHART -->
+                    <div class="box f-height">
+                        <div class="box-body">
+							<h2>Overall Summary</h2>
+                            <div id="category-chart"></div>
+                        </div>
+                    </div>
+                    <!-- END CATEGORY CHART -->
+                </div>
+                <div class="col-5 col-md-12 col-sm-12">
+                    <!-- CUSTOMERS CHART -->
+                    <div class="box f-height">
+                        <div class="box-header">
+                            Daily Visitors
+                        </div>
+                        <div class="box-body">
+                            <div id="customer-chart"></div>
+                        </div>
+                    </div>
+                    <!-- END CUSTOMERS CHART -->
+                </div>
+                <div class="col-12">
+                    <!-- ORDERS TABLE -->
+                    <div class="box">
+                        <div class="box-header">
+                            Recommendations for you
+                        </div>
+                        <div class="box-body overflow-scroll">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Peers</th>
+                                        <th>Skillsets</th>
+                                        <th> Connect</th>
+                                        <th>Tagline</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#18eucs</td>
+                                        <td>
+                                            <div class="order-owner">
+                                                <img src="user-image.jpg.jpeg" alt="user image">
+                                                <span>Adithya Menon</span>
+                                            </div>
+                                        </td>
+                                        <td>Fullstack</td>
+                                        <td>
+                                            <span class="order-status order-ready">
+                                                <a href="#">Added as friend </a>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="payment-status payment-pending">
+                                                <div class="dot"></div>
+												<span>Bringing ideas to life</span>
+                                            </div>
+                                        </td>
+                                       
+                                    </tr>
+                                    <tr>
+                                        <td>18eucs</td>
+                                        <td>
+                                            <div class="order-owner">
+                                                <img src="user-image.jpg.jpeg" alt="user image">
+                                                <span>Keethi Rajan</span>
+                                            </div>
+                                        </td>
+                                        <td>Fullstack</td>
+                                        <td>
+                                            <span class="order-status order-shipped">
+                                                <a href="#">Add as friend</a>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="payment-status payment-paid">
+                                                <div class="dot"></div>
+                                               <span>Performance&Stability </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>18eucs</td>
+                                        <td>
+                                            <div class="order-owner">
+                                                <img src="user-image.jpg.jpeg" alt="user image">
+                                                <span>Yogesh</span>
+                                            </div>
+                                        </td>
+                                        <td>Fullstack</td>
+                                        <td>
+                                            <span class="order-status order-shipped">
+												<a href="#">Add as friend</a>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="payment-status payment-paid">
+                                                <div class="dot"></div>
+                                                <span>Cyber Security Enthusiasts</span>
+                                            </div>
+                                        </td>
+                                    
+                                    </tr>
+                                    <tr>
+                                        <td>19eucs</td>
+                                        <td>
+                                            <div class="order-owner">
+                                                <img src="user-image.jpg.jpeg" alt="user image">
+                                                <span>Celesta</span>
+                                            </div>
+                                        </td>
+                                        <td>Frontend</td>
+                                        <td>
+                                            <span class="order-status order-shipped">
+												<a href="#">Add as friend</a>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="payment-status payment-paid">
+                                                <div class="dot"></div>
+                                                <span> Woman who codes </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>19eucs</td>
+                                        <td>
+                                            <div class="order-owner">
+                                                <img src="user-image.jpg.jpeg" alt="user image">
+                                                <span>evelyn</span>
+                                            </div>
+                                        </td>
+                                        <td>Backend</td>
+                                        <td>
+                                            <span class="order-status order-shipped">
+                                                <a href="#">Add as friend</a>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="payment-status payment-paid">
+                                                <div class="dot"></div>
+												<span>I code for life</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END ORDERS TABLE -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+
+    <div class="overlay"></div>
+
+    <!-- SCRIPT -->
+    <!-- APEX CHART -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- APP JS -->
+    <script src="dum.js"></script>
+
+</body>
+
+</html>
+<script>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAbHCwwvYpuHi0YkmbuhUtz1umBR3tFpp8",
+    authDomain: "hackhers-821bf.firebaseapp.com",
+    databaseURL: "https://hackhers-821bf-default-rtdb.firebaseio.com",
+    projectId: "hackhers-821bf",
+    storageBucket: "hackhers-821bf.appspot.com",
+    messagingSenderId: "147545669442",
+    appId: "1:147545669442:web:c83c97c13c9a5dfb9e12db",
+    measurementId: "G-4RYCKG27MM"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+   //import {getDatabase,ref,get,set,child,update,remove}
+//  from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+ // const db =getDatabase(); 
+var reg=sessionStorage.getItem('reg')
+get(child(dbRef, 'Thestudents/'+window.location.search.split('user=')[1]
+)).then((snapshot)=>{
+    var data=snapshot.val()
+}
+ document.getElementbyId('skillval').value=data.reg
+ 
+ 
+
+
+
+</script>
